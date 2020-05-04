@@ -25,6 +25,9 @@
     ?>
     <main class="valign-wrapper">
         <div class="container">
+            <div class="row center-align">
+                <a href="./pages/registro/registro.php"><h4 class="deep-orange-text accent-2"><i class="fas fa-user-plus"></i> Crea una cuenta</h4></a>
+            </div>
             <form id="formIndex" autocomplete="off">
             <div class="row">
                 <div class="col s12 m6 input-field">
