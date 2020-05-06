@@ -21,9 +21,14 @@
 <meta name="keywords" content="">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+<link href="./../../js/plugins/validetta/validetta.min.css" rel="stylesheet">
+<link href="./../../js/plugins/confirm/jquery-confirm.min.css" rel="stylesheet">
 <link href="./../../css/general.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./../../js/plugins/validetta/validetta.min.js"></script>
+<script src="./../../js/plugins/validetta/validettaLang-es-ES.js"></script>
+<script src="./../../js/plugins/confirm/jquery-confirm.min.js"></script>
 <script src="./../../js/alumno.js"></script>
 </head>
 <body>
@@ -46,14 +51,56 @@
                     <?php echo $info; ?>
                 </div>
                 <div id="editar" class="col s12">
-                    <?php
-                        include("./alumno_FormEditar.php");
-                    ?>
+                    <p>&nbsp;</p>
+                    <div class="row">
+                        <form id="formEditAlumno" autocomplete="off">
+                        <div class="col s12 m4 input-field">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" value="<?php echo $infInfBoleta[1]; ?>" data-validetta="required">
+                        </div>
+                        <div class="col s12 m4 input-field">
+                            <label for="primerApe">Primer apellido</label>
+                            <input type="text" id="primerApe" name="primerApe" value="<?php echo $infInfBoleta[2]; ?>" data-validetta="required">
+                        </div>
+                        <div class="col s12 m4 input-field">
+                            <label for="segundoApe">Segundo apellido</label>
+                            <input type="text" id="segundoApe" name="segundoApe" value="<?php echo $infInfBoleta[3]; ?>" data-validetta="required">
+                        </div>
+                        <div class="col s12 m4 input-field">
+                            <label for="correo">Correo</label>
+                            <input type="text" id="correo" name="correo" value="<?php echo $infInfBoleta[5]; ?>" data-validetta="required,email">
+                        </div>
+                        <div class="col s12 m4 input-field">
+                            <label for="fechaNac">Fecha de nacimiento</label>
+                            <input type="text" id="fechaNac" name="fechaNac" class="datepicker" value="<?php echo $infInfBoleta[6]; ?>" readonly data-validetta="required">
+                        </div>
+                        <div class="col s12 m4 input-field">
+                            <input type="submit" class="btn deep-orange accent-2" style="width:100%" value="Editar">
+                        </div>
+                        </form>
+                    </div>
                 </div>
                 <div id="contrasena" class="col s12">
-                    <?php
-                        include("./alumno_FormContrasena.php");
-                    ?>
+                    <p>&nbsp;</p>
+                    <div class="row">
+                        <form id="formCambiarContrasena">
+                        <div class="col s12 m4 input-field">
+                            <label for="contrasenaAct">Contrase&ntilde;a actual</label>
+                            <input type="password" id="contrasenaAct" name="contrasenaAct" data-validetta="required,minLength[6]">
+                        </div>
+                        <div class="col s12 m4 input-field">
+                            <label for="contrasenaNva">Contrase&ntilde;a nueva</label>
+                            <input type="password" id="contrasenaNva" name="contrasenaNva" data-validetta="required,minLength[6],equalTo[contrasenaNva2]">
+                        </div>
+                        <div class="col s12 m4 input-field">
+                            <label for="contrasenaNva2">Confirmar contrase&ntilde;a</label>
+                            <input type="password" id="contrasenaNva2" name="contrasenaNva2" data-validetta="required,minLength[6],equalTo[contrasenaNva]">
+                        </div>
+                        <div class="col s12 input-field">
+                            <input type="submit" class="btn deep-orange accent-2" style="width:100%" value="Cambiar contrase&ntilde;a">
+                        </div>
+                        </form>
+                    </div>
                 </div>
                 <div id="comprobante" class="col s12">
                     <div class="row center-align">
