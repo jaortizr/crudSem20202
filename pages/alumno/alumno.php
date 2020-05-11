@@ -105,11 +105,15 @@
                 <div id="comprobante" class="col s12">
                     <div class="row center-align">
                         <div class="col s12 m6">
-                            <h1><i class="fab fa-adobe fa-2x deep-orange-text accent-2"></i></h1>
+                            <h1>
+                                <a href="./alumnoPDF.php"><i class="fab fa-adobe fa-2x deep-orange-text accent-2"></i></a>
+                            </h1>
                             <h5>PDF</h5>
                         </div>
                         <div class="col s12 m6">
-                            <h1><i class="fas fa-envelope fa-2x deep-orange-text accent-2"></i></h1>
+                            <h1>
+                                <a href="./alumnoCorreo.php"><i class="fas fa-envelope fa-2x deep-orange-text accent-2"></i></a>
+                            </h1>
                             <h5>Correo</h5>
                         </div>
                     </div>
