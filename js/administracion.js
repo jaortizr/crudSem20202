@@ -5,7 +5,14 @@ $(document).ready(function(){
     var boleta;
     $("main").on("click",".verAlmn",function(){
         boleta = $(this).attr("data-ver");
-        alert("Ver - "+ boleta);
+        var titulo = "<h2>CRUD - TW - 20202</h2>";
+        //En algunos casos podemos ahorrarnos algunas líneas de código haciendo uso de la posibilidad que desde el plugin de confirm.js se hgan peticiones AJAX
+        $.confirm({
+            title:titulo,
+            content: "url:./administracionVer.php?boleta="+boleta,
+            theme:"supervan",
+            icon:"fas fa-eye fa-2x"
+        });
     });
 
     $("main").on("click",".editarAlmn",function(){
