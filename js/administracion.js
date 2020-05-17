@@ -1,15 +1,16 @@
 $(document).ready(function(){
     $('.fixed-action-btn').floatingActionButton();
 
-    //Nos ayudamos del evento on() de jQuery  [https://www.w3schools.com/jquery/event_on.asp] ya que las clases '***Almn' se generan de forma dinámica y no están disponibles en primera instancia para el DOM de JS
     var boleta;
+    var titulo = "<h2>CRUD - TW - 20202</h2>";
+
+    //Nos ayudamos del evento on() de jQuery  [https://www.w3schools.com/jquery/event_on.asp] ya que las clases '***Almn' se generan de forma dinámica y no están disponibles en primera instancia para el DOM de JS
     $("main").on("click",".verAlmn",function(){
         boleta = $(this).attr("data-ver");
-        var titulo = "<h2>CRUD - TW - 20202</h2>";
-        //En algunos casos podemos ahorrarnos algunas líneas de código haciendo uso de la posibilidad que desde el plugin de confirm.js se hgan peticiones AJAX
-        $.confirm({
+        //En algunos casos podemos ahorrarnos algunas líneas de código haciendo uso de la posibilidad que desde el plugin de confirm.js se hagan peticiones AJAX
+        $.alert({
             title:titulo,
-            content: "url:./administracionVer.php?boleta="+boleta,
+            content: "url:./administracionVer_AX.php?boleta="+boleta,
             theme:"supervan",
             icon:"fas fa-eye fa-2x"
         });
@@ -17,12 +18,32 @@ $(document).ready(function(){
 
     $("main").on("click",".editarAlmn",function(){
         boleta = $(this).attr("data-editar");
-        alert("Editar - "+ boleta);
+        window.location.href = "./administracionEditar.php?boleta="+boleta;
     });
 
     $("main").on("click",".eliminarAlmn",function(){
         boleta = $(this).attr("data-eliminar");
-        alert("Eliminar - "+ boleta);
+        $.confirm({
+            title:titulo,
+            content:"<h5>Est&aacute; seguro de eliminar el registro de la Boleta: "+boleta+"</h5>",
+            theme:"supervan",
+            icon:"fas fa-times",
+            buttons:{
+                Sí:function(){
+                    $.alert({
+                        title:titulo,
+                        content: "url:./administracionEliminar_AX.php?boleta="+boleta,
+                        theme:"supervan",
+                        icon:"fas fa-times fa-2x",
+                        onDestroy:function(){
+                            location.reload();
+                        }
+                    });
+                },
+                No:function(){
+                }
+            }
+        });
     });
 
     $("main").on("click",".pdfAlmn",function(){
