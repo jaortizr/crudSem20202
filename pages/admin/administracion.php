@@ -32,6 +32,7 @@
             </a>
             <ul>
                 <li><a href="./../fix/cerrarSesion.php?nombreSesion=admin" class="btn-floating teal accent-4"><i class="fas fa-power-off"></i></a></li>
+                <li><a href="./administracionReporte.php" class="btn-floating teal accent-4"><i class="fas fa-chart-bar"></i></a></li>
             </ul>
         </div>
     </header>
